@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    {% for (title,id) in title_id_list %}
+    <p color="red" hover:color="black" ><a href="/files/{{ id }}">{{ title }}</a></p>
+    {% endfor %}
+</div>
+{% endblock %}
