@@ -18,6 +18,9 @@
 --
 -- Table structure for table `category`
 --
+DROP DATABASE IF EXISTS shiyanlou;
+CREATE DATABASE shiyanlou;
+USE shiyanlou;
 
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

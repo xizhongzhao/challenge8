@@ -25,14 +25,18 @@ class File(db.Model):
         self.content = content
 
     def add_tag(self,tag_name):
-        pass
+        mdb.files.insert_one({"title":self.title,"tag":tag_name})
 
-    def remove_tag(self,tag_nam):
-        pass
+    def remove_tag(self,tag_name):
+        mdb.files.remove({"title":self.title,"tag":tag_name})
 
     @property
     def tags(self):
-        pass
+        _find_obj_list=mdb.files.find({"title":self.title})
+        _tags = []
+        for _find_obj in _find_obj_list:
+            tags.append(_find_obj['tag'])
+        return _tags    
 
     def __repr__(self):
         return '<File %r>' %self.title
@@ -54,6 +58,7 @@ def index():
     file_instance_list = File.query.all()
     title_id_list = [(file_instance.title,file_instance.id) for \
             file_instance in file_instance_list ]
+    
     return render_template('index.html',title_id_list=title_id_list)
 
 
