@@ -3,11 +3,12 @@
 from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from pymongo import MongoClient
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost/shiyanlou'
 db = SQLAlchemy(app)
-
+mdb = MongoClient('127.0.0.1',27017).shiyanlou
 
 class File(db.Model):
     id = db.Column(db.Integer,primary_key=True,index=True)
@@ -22,6 +23,9 @@ class File(db.Model):
         self.created_time = created_time
         self.category_id = category_id
         self.content = content
+
+    def add_tag(self,tag_name):
+        _t
     
     def __repr__(self):
         return '<File %r>' %self.title
