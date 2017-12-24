@@ -2,7 +2,12 @@
 {% block content %}
 <div>
     {% for (title,id) in title_id_list %}
-    <p color="red" hover:color="black" ><a href="/files/{{ id }}">{{ title }}</a></p>
+    <p color="red" hover:color="black" >
+    <a href="/files/{{ id }}">{{ title }}</a>
+    <ul>
+	    <li>{{ tag }}<li>
+    </ul>	    
+    </p>
     {% endfor %}
 </div>
-{% endblock %}
+% endblock %}
