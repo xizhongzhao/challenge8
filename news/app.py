@@ -25,8 +25,15 @@ class File(db.Model):
         self.content = content
 
     def add_tag(self,tag_name):
-        _t
-    
+        pass
+
+    def remove_tag(self,tag_nam):
+        pass
+
+    @property
+    def tags(self):
+        pass
+
     def __repr__(self):
         return '<File %r>' %self.title
 
