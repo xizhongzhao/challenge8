@@ -36,11 +36,6 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Java'),(2,'Python');
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `file`
@@ -65,11 +60,6 @@ CREATE TABLE `file` (
 -- Dumping data for table `file`
 --
 
-LOCK TABLES `file` WRITE;
-/*!40000 ALTER TABLE `file` DISABLE KEYS */;
-INSERT INTO `file` VALUES (1,'Hello Java','2017-12-24 12:16:48',1,'File Content - Java is cool!'),(2,'Hello Python','2017-12-24 12:17:29',2,'File Content - Python is cool!');
-/*!40000 ALTER TABLE `file` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

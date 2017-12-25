@@ -56,8 +56,7 @@ class Category(db.Model):
 def index():
     db.create_all()
     file_instance_list = File.query.all()
-    title_id_tags_list = [(file_instance.title,file_instance.id,file_instance.tags) for \
-            file_instance in file_instance_list ]
+    title_id_tags_list = [(file_instance.title,file_instance.id,file_instance.tags) for file_instance in file_instance_list ]
     return render_template('index.html',title_id_tags_list=title_id_tags_list)
 
 @app.route('/files/<file_id>')
