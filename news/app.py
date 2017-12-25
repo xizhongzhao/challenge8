@@ -17,11 +17,11 @@ class File(db.Model):
     category_id = db.Column(db.Integer,db.ForeignKey('category.id'))
     category = db.relationship('Category',backref='files')
     content = db.Column(db.Text)
-    
-    def __init__(self,title,created_time,category_id,content):
+
+    def __init__(self,title,created_time,_category,content):
         self.title = title
         self.created_time = created_time
-        self.category_id = category_id
+        self.category_id = _category.id
         self.content = content
 
     def add_tag(self,tag_name):
@@ -35,7 +35,7 @@ class File(db.Model):
         _find_obj_list=mdb.files.find({"title":self.title})
         _tags = []
         for _find_obj in _find_obj_list:
-            tags.append(_find_obj['tag'])
+            _tags.append(_find_obj['tag'])
         return _tags    
 
     def __repr__(self):
@@ -56,13 +56,9 @@ class Category(db.Model):
 def index():
     db.create_all()
     file_instance_list = File.query.all()
-    title_id_list = [(file_instance.title,file_instance.id) for \
+    title_id_tags_list = [(file_instance.title,file_instance.id,file_instance.tags) for \
             file_instance in file_instance_list ]
-    
-    return render_template('index.html',title_id_list=title_id_list)
-
-
-
+    return render_template('index.html',title_id_tags_list=title_id_tags_list)
 
 @app.route('/files/<file_id>')
 def file(file_id):

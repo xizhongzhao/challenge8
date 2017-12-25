@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    {% for (title,id) in title_id_list %}
+    {% for (title,id,tags) in title_id_tags_list %}
     <p color="red" hover:color="black" >
     <a href="/files/{{ id }}">{{ title }}</a>
     <ul>
+        {% for tag in tags_list %}
 	    <li>{{ tag }}<li>
+        {% endfor %}
     </ul>	    
     </p>
     {% endfor %}
 </div>
-% endblock %}
+{% endblock %}
